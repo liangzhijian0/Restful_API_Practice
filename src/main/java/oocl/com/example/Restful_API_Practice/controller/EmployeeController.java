@@ -42,6 +42,11 @@ public class EmployeeController {
         return employeeService.getFemaleEmployees();
     }
 
+    @GetMapping("/Employees/page/{page}/pageSize/{pageSize}")
+    public List<Employee> getEmployeesByPage(@PathVariable int page,@PathVariable int pageSize){
+        Map<String ,Object> response = new LinkedHashMap<>();
+        return  employeeService.getEmployeesByPage(page,pageSize);
+    }
 
     @PostMapping(path = "Employees")
     public Employee addEmployee(@RequestBody Employee employee) {
@@ -60,17 +65,17 @@ public class EmployeeController {
         }
         return response;
     }
-//
-//    @PutMapping("/Employees/{id}")
-//    public Map<String ,Object> updateEmployee(@PathVariable Long id, @RequestBody Employee request){
-//        Map<String ,Object> response = new LinkedHashMap<>();
-//        Employee employee =  employeeService.updateEmployee(id,request);
-//        if(employee != null){
-//            response.put("status","successful");
-//            response.put("employee",employee);
-//        }else{
-//            response.put("status","fail");
-//        }
-//        return response;
-//    }
+
+    @PutMapping("/Employees/{id}")
+    public Map<String ,Object> updateEmployee(@PathVariable Long id, @RequestBody Employee request){
+        Map<String ,Object> response = new LinkedHashMap<>();
+        Employee employee =  employeeService.updateEmployee(id,request);
+        if(employee != null){
+            response.put("status","successful");
+            response.put("employee",employee);
+        }else{
+            response.put("status","fail");
+        }
+        return response;
+    }
 }

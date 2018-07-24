@@ -75,5 +75,16 @@ public class EmployeeService implements EmployeeDao {
         return allEmployees.stream().filter(employee -> employee.getGender() == "female").collect(Collectors.toList());
     }
 
+    @Override
+    public List<Employee> getEmployeesByPage(int page, int pageSize) {
+        List<Employee> result = new ArrayList<>();
+        int start = (page-1)*pageSize;
+        int end = (start+pageSize)>allEmployees.size() ? allEmployees.size() : (start+pageSize);
+        for(int i=start;i<end;i++){
+            result.add(allEmployees.get(i));
+        }
+        return result;
+    }
+
 
 }

@@ -20,4 +20,6 @@ public interface EmployeeDao {
     List<Employee> getMaleEmployees();
 
     List<Employee> getFemaleEmployees();
+
+    List<Employee> getEmployeesByPage(int page, int pageSize);
 }
