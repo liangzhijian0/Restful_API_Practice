@@ -12,6 +12,7 @@ import java.util.List;
 public class CompanyService implements CompanyDao {
 
     private List<Company> allCompanies = new ArrayList<>();
+    int companyId = 1;
 
     @Override
     public List<Company> getAllCompanies() {
@@ -51,6 +52,28 @@ public class CompanyService implements CompanyDao {
         for(Company company : allCompanies){
             if (company.getId() == id){
                 return company.getEmployees();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Company addCompany(Company company) {
+        company.setId(companyId);
+        companyId ++ ;
+        allCompanies.add(company);
+        return company;
+    }
+
+    @Override
+    public Company updateCompany(Long id, Company newCompany) {
+        for(Company company : allCompanies){
+            if (company.getId() == id){
+                System.out.println(111);
+                company.setCompanyName(newCompany.getCompanyName() != "" ? newCompany.getCompanyName() : company.getCompanyName());
+                company.setEmployees(newCompany.getEmployees().size()!=0 ? newCompany.getEmployees() : company.getEmployees());
+                company.setEmployeesNumber(newCompany.getEmployeesNumber() != 0 ? newCompany.getEmployeesNumber() : company.getEmployeesNumber());
+                return company;
             }
         }
         return null;

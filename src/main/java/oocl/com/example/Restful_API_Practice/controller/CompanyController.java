@@ -5,9 +5,7 @@ import oocl.com.example.Restful_API_Practice.domin.Employee;
 import oocl.com.example.Restful_API_Practice.service.CompanyService;
 import oocl.com.example.Restful_API_Practice.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -44,6 +42,24 @@ public class CompanyController {
     @GetMapping("/companies/{id}/employees")
     public List<Employee> getEmployeesFromCompany(@PathVariable long id){
         return  companyService.getEmployeesFromCompany(id);
+    }
+
+    @PostMapping(path = "companies")
+    public Company addCompany(@RequestBody Company company) {
+        return companyService.addCompany(company);
+    }
+
+    @PutMapping("/companies/{id}")
+    public Map<String ,Object> updateEmployee(@PathVariable Long id, @RequestBody Company request){
+        Map<String ,Object> response = new LinkedHashMap<>();
+        Company company =  companyService.updateCompany(id,request);
+        if(company != null){
+            response.put("status","successful");
+            response.put("company",company);
+        }else{
+            response.put("status","fail");
+        }
+        return response;
     }
 
 }

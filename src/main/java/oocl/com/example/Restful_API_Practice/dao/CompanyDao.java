@@ -13,4 +13,8 @@ public interface CompanyDao {
     List<Company> getCompaniesByPage(int page, int pageSize);
 
     List<Employee> getEmployeesFromCompany(long id);
+
+    Company addCompany(Company company);
+
+    Company updateCompany(Long id, Company request);
 }
