@@ -9,6 +9,10 @@ import org.junit.runner.Request;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import sun.plugin.javascript.navig.Array;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -40,5 +44,19 @@ public class EmployeeServiceTest {
         employeeService.allEmployees.add(employee2);
 
         assertThat(employeeService.getEmployee(1), is(employee1));
+    }
+
+    @Test
+    public void should_return_male_employees_when_get_employee_by_male() {
+
+        EmployeeService employeeService = new EmployeeService();
+        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+        employeeService.allEmployees.add(employee1);
+        employeeService.allEmployees.add(employee2);
+        List<Employee> result = new ArrayList<>();
+        result.add(employee1);
+
+        assertThat(employeeService.getMaleEmployees(), is(result));
     }
 }
