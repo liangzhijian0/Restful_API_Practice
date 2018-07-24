@@ -79,4 +79,15 @@ public class EmployeeServiceTest {
 
         assertThat(employeeService.getEmployeesByPage(2,2), is(result));
     }
+
+    @Test
+    public void should_return_employee_when_add_employee() {
+
+        EmployeeService employeeService = new EmployeeService();
+        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+        employeeService.allEmployees.add(employee1);
+
+        assertThat(employeeService.addEmployee(employee2), is(employee2));
+    }
 }
