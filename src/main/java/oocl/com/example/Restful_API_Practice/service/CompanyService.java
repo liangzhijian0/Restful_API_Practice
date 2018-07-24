@@ -78,4 +78,15 @@ public class CompanyService implements CompanyDao {
         }
         return null;
     }
+
+    @Override
+    public Company deleteCompany(Long id) {
+        for(Company company : allCompanies){
+            if (company.getId() == id){
+                allCompanies.remove(company);
+                return company;
+            }
+        }
+        return null;
+    }
 }

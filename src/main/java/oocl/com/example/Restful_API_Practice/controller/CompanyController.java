@@ -62,4 +62,17 @@ public class CompanyController {
         return response;
     }
 
+    @DeleteMapping("/companies/{id}")
+    public Map<String ,Object> deleteEmployee(@PathVariable Long id){
+        Map<String ,Object> response = new LinkedHashMap<>();
+        Company company =  companyService.deleteCompany(id);
+        if(company != null){
+            response.put("status","successful");
+            response.put("company",company);
+        }else{
+            response.put("status","fail");
+        }
+        return response;
+    }
+
 }

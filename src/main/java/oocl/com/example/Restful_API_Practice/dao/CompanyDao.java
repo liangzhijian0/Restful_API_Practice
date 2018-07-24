@@ -17,4 +17,6 @@ public interface CompanyDao {
     Company addCompany(Company company);
 
     Company updateCompany(Long id, Company request);
+
+    Company deleteCompany(Long id);
 }
