@@ -10,19 +10,21 @@ import java.util.List;
 
 @Component
 public class CompanyService implements CompanyDao {
+    public CompanyService() {
+    }
 
-    private List<Company> allCompanies = new ArrayList<>();
+    public List<Company> allCompanies = new ArrayList<>();
     int companyId = 1;
 
     @Override
     public List<Company> getAllCompanies() {
-        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
-        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
-        List<Employee> employees = new ArrayList<>();
-        employees.add(employee1);
-        employees.add(employee2);
-        allCompanies.add(new Company(1,"dab",23,employees));
-        allCompanies.add(new Company(2,"ocelai",32,employees));
+//        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+//        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+//        List<Employee> employees = new ArrayList<>();
+//        employees.add(employee1);
+//        employees.add(employee2);
+//        allCompanies.add(new Company(1,"dab",23,employees));
+//        allCompanies.add(new Company(2,"ocelai",32,employees));
         return allCompanies;
     }
 
