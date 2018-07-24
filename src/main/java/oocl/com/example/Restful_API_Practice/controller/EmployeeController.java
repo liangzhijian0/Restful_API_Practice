@@ -47,19 +47,19 @@ public class EmployeeController {
     public Employee addEmployee(@RequestBody Employee employee) {
         return employeeService.addEmployee(employee);
     }
-//
-//    @DeleteMapping("/Employees/{id}")
-//    public Map<String ,Object> deleteEmployee(@PathVariable Long id){
-//        Map<String ,Object> response = new LinkedHashMap<>();
-//        Employee employee =  employeeService.deleteEmployee(id);
-//        if(employee != null){
-//            response.put("status","successful");
-//            response.put("employee",employee);
-//        }else{
-//            response.put("status","fail");
-//        }
-//        return response;
-//    }
+
+    @DeleteMapping("/Employees/{id}")
+    public Map<String ,Object> deleteEmployee(@PathVariable Long id){
+        Map<String ,Object> response = new LinkedHashMap<>();
+        Employee employee =  employeeService.deleteEmployee(id);
+        if(employee != null){
+            response.put("status","successful");
+            response.put("employee",employee);
+        }else{
+            response.put("status","fail");
+        }
+        return response;
+    }
 //
 //    @PutMapping("/Employees/{id}")
 //    public Map<String ,Object> updateEmployee(@PathVariable Long id, @RequestBody Employee request){
