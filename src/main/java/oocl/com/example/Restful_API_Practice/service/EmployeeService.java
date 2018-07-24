@@ -19,6 +19,16 @@ public class EmployeeService implements EmployeeDao {
     }
 
     @Override
+    public Employee getEmployee(long id) {
+        for(Employee employee : allEmployees){
+            if (employee.getId() == id){
+                return employee;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public Employee addEmployee(Employee employee) {
         employee.setId(employeeId);
         employeeId ++ ;
@@ -50,4 +60,6 @@ public class EmployeeService implements EmployeeDao {
         }
         return null;
     }
+
+
 }

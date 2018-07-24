@@ -19,10 +19,18 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-//    @GetMapping("/Employees/{id}")
-//    public List<Employee> getAllEmployees(@PathVariable long id){
-//       return employeeService.getAllEmployees();
-//    }
+    @GetMapping("/Employees/{id}")
+    public Map<String ,Object> getAllEmployees(@PathVariable long id){
+        Map<String ,Object> response = new LinkedHashMap<>();
+        Employee employee =  employeeService.getEmployee(id);
+        if(employee != null){
+            response.put("status","successful");
+            response.put("employee",employee);
+        }else{
+            response.put("status","fail");
+        }
+        return response;
+    }
 
 
     @PostMapping(path = "Employees")
