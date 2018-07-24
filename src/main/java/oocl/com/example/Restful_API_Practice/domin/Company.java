@@ -15,7 +15,7 @@ public class Company {
         this.employeesNumber = employeesNumber;
         this.employees = employees;
     }
-    
+
     public String getCompanyName() {
         return companyName;
     }

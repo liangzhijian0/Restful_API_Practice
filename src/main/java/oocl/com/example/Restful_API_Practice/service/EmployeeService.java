@@ -67,12 +67,12 @@ public class EmployeeService implements EmployeeDao {
 
     @Override
     public List<Employee> getMaleEmployees() {
-        return allEmployees.stream().filter(employee -> employee.getGender() == "male").collect(Collectors.toList());
+        return allEmployees.stream().filter(employee -> employee.getGender().equals("male") ).collect(Collectors.toList());
     }
 
     @Override
     public List<Employee> getFemaleEmployees() {
-        return allEmployees.stream().filter(employee -> employee.getGender() == "female").collect(Collectors.toList());
+        return allEmployees.stream().filter(employee -> employee.getGender().equals("female")).collect(Collectors.toList());
     }
 
     @Override
