@@ -96,9 +96,23 @@ public class EmployeeServiceTest {
 
         EmployeeService employeeService = new EmployeeService();
         Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
-        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
         employeeService.allEmployees.add(employee1);
 
         assertThat(employeeService.deleteEmployee(1), is(employee1));
+    }
+
+    @Test
+    public void should_show_correct_property_of_employee_after_update_employee() {
+
+        EmployeeService employeeService = new EmployeeService();
+        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+        employeeService.allEmployees.add(employee1);
+        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+        Employee newEmployee = employeeService.updateEmployee(1,employee2);
+
+        assertThat(newEmployee.getAge(), is(21));
+        assertThat(newEmployee.getName(), is("ocean"));
+        assertThat(newEmployee.getGender(), is("female"));
+        assertThat(newEmployee.getSalary(), is(4554));
     }
 }

@@ -62,6 +62,7 @@ public class EmployeeService implements EmployeeDao {
                 employee.setAge(newEmployee.getAge() != 0 ? newEmployee.getAge() : employee.getAge());
                 employee.setName(newEmployee.getName() != "" ? newEmployee.getName() : employee.getName());
                 employee.setGender(newEmployee.getGender() != "" ? newEmployee.getGender() : employee.getGender());
+                employee.setSalary(newEmployee.getSalary() != 0 ? newEmployee.getSalary() : employee.getSalary());
                 return employee;
             }
         }
