@@ -32,6 +32,16 @@ public class EmployeeController {
         return response;
     }
 
+    @GetMapping("/Employees/male")
+    public List<Employee> getMaleEmployees(){
+        return employeeService.getMaleEmployees();
+    }
+
+    @GetMapping("/Employees/female")
+    public List<Employee> getFemaleEmployees(){
+        return employeeService.getFemaleEmployees();
+    }
+
 
     @PostMapping(path = "Employees")
     public Employee addEmployee(@RequestBody Employee employee) {

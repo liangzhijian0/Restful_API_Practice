@@ -7,14 +7,18 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class EmployeeService implements EmployeeDao {
 
     private List<Employee> allEmployees = new ArrayList<>();
+
     int employeeId = 1;
 
     public List<Employee> getAllEmployees() {
+        allEmployees.add(new Employee(1,"sanlai",20,"male",3244));
+        allEmployees.add(new Employee(2,"ocean",21,"female",4554));
         return allEmployees;
     }
 
@@ -59,6 +63,16 @@ public class EmployeeService implements EmployeeDao {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Employee> getMaleEmployees() {
+        return allEmployees.stream().filter(employee -> employee.getGender() == "male").collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Employee> getFemaleEmployees() {
+        return allEmployees.stream().filter(employee -> employee.getGender() == "female").collect(Collectors.toList());
     }
 
 

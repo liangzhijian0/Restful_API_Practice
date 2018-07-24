@@ -16,4 +16,8 @@ public interface EmployeeDao {
     Employee deleteEmployee(long id);
 
     Employee updateEmployee(long id, Employee employee);
+
+    List<Employee> getMaleEmployees();
+
+    List<Employee> getFemaleEmployees();
 }
