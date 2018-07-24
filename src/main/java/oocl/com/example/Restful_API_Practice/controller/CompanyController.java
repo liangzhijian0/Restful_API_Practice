@@ -35,4 +35,15 @@ public class CompanyController {
         }
         return response;
     }
+
+    @GetMapping("/companies/page/{page}/pageSize/{pageSize}")
+    public List<Company> getCompaniesByPage(@PathVariable int page,@PathVariable int pageSize){
+        return  companyService.getCompaniesByPage(page,pageSize);
+    }
+
+    @GetMapping("/companies/{id}/employees")
+    public List<Employee> getEmployeesFromCompany(@PathVariable long id){
+        return  companyService.getEmployeesFromCompany(id);
+    }
+
 }

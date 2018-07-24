@@ -34,4 +34,25 @@ public class CompanyService implements CompanyDao {
         }
         return null;
     }
+
+    @Override
+    public List<Company> getCompaniesByPage(int page, int pageSize) {
+        List<Company> result = new ArrayList<>();
+        int start = (page-1)*pageSize;
+        int end = (start+pageSize)>allCompanies.size() ? allCompanies.size() : (start+pageSize);
+        for(int i=start;i<end;i++){
+            result.add(allCompanies.get(i));
+        }
+        return result;
+    }
+
+    @Override
+    public List<Employee> getEmployeesFromCompany(long id) {
+        for(Company company : allCompanies){
+            if (company.getId() == id){
+                return company.getEmployees();
+            }
+        }
+        return null;
+    }
 }

@@ -44,7 +44,6 @@ public class EmployeeController {
 
     @GetMapping("/Employees/page/{page}/pageSize/{pageSize}")
     public List<Employee> getEmployeesByPage(@PathVariable int page,@PathVariable int pageSize){
-        Map<String ,Object> response = new LinkedHashMap<>();
         return  employeeService.getEmployeesByPage(page,pageSize);
     }
 
