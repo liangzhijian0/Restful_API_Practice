@@ -25,10 +25,10 @@ public class EmployeeController {
 //    }
 
 
-//    @PostMapping(path = "Employees")
-//    public Employee addEmployee(@RequestBody Employee employee) {
-//        return employeeService.addEmployee(employee);
-//    }
+    @PostMapping(path = "Employees")
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return employeeService.addEmployee(employee);
+    }
 //
 //    @DeleteMapping("/Employees/{id}")
 //    public Map<String ,Object> deleteEmployee(@PathVariable Long id){
