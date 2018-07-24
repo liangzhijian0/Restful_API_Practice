@@ -59,4 +59,24 @@ public class EmployeeServiceTest {
 
         assertThat(employeeService.getMaleEmployees(), is(result));
     }
+
+    @Test
+    public void should_return_employees_when_get_employee_by_page_and_pageSize() {
+
+        EmployeeService employeeService = new EmployeeService();
+        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+        Employee employee3 = new Employee(3,"ea",20,"male",15);
+        Employee employee4 = new Employee(4,"oen",21,"female",23);
+        employeeService.allEmployees.add(employee1);
+        employeeService.allEmployees.add(employee2);
+        employeeService.allEmployees.add(employee3);
+        employeeService.allEmployees.add(employee4);
+
+        List<Employee> result = new ArrayList<>();
+        result.add(employee3);
+        result.add(employee4);
+
+        assertThat(employeeService.getEmployeesByPage(2,2), is(result));
+    }
 }
