@@ -73,5 +73,58 @@ public class CompanyServiceTest {
 
         assertThat(companyService.getCompaniesByPage(2,1), is(result));
     }
+
+    @Test
+    public void should_return_one_company_when_add_company() {
+
+        CompanyService companyService = new CompanyService();
+        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+        List<Employee> employees = new ArrayList<>();
+        employees.add(employee1);
+        employees.add(employee2);
+
+        Company company1 = new Company(1,"dab",23,employees);
+        Company company2 = new Company(2,"ocelai",32,employees);
+        companyService.allCompanies.add(company1);
+
+        assertThat(companyService.addCompany(company2), is(company2));
+    }
+
+//    @Test
+//    public void should_return_one_company_when_update_company_by_id() {
+//
+//        CompanyService companyService = new CompanyService();
+//        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+//        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+//        List<Employee> employees = new ArrayList<>();
+//        employees.add(employee1);
+//        employees.add(employee2);
+//
+//        Company company1 = new Company(1,"dab",23,employees);
+//        Company company2 = new Company(2,"ocelai",32,employees);
+//        companyService.allCompanies.add(company1);
+//        companyService.allCompanies.add(company2);
+//
+//        assertThat(companyService.getCompanyById(1), is(company1));
+//    }
+//
+//    @Test
+//    public void should_return_one_company_when_delete_company_by_id() {
+//
+//        CompanyService companyService = new CompanyService();
+//        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+//        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+//        List<Employee> employees = new ArrayList<>();
+//        employees.add(employee1);
+//        employees.add(employee2);
+//
+//        Company company1 = new Company(1,"dab",23,employees);
+//        Company company2 = new Company(2,"ocelai",32,employees);
+//        companyService.allCompanies.add(company1);
+//        companyService.allCompanies.add(company2);
+//
+//        assertThat(companyService.getCompanyById(1), is(company1));
+//    }
 }
 
