@@ -90,4 +90,15 @@ public class EmployeeServiceTest {
 
         assertThat(employeeService.addEmployee(employee2), is(employee2));
     }
+
+    @Test
+    public void should_return_employee_when_delete_employee() {
+
+        EmployeeService employeeService = new EmployeeService();
+        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+        employeeService.allEmployees.add(employee1);
+
+        assertThat(employeeService.deleteEmployee(1), is(employee1));
+    }
 }
