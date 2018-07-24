@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CompanyDao {
     List<Company> getAllCompanies();
+
+    Company getCompanyById(long id);
 }

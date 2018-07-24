@@ -3,6 +3,7 @@ package oocl.com.example.Restful_API_Practice.domin;
 import java.util.List;
 
 public class Company {
+    private int id;
     private String companyName;
     private int employeesNumber;
     private List<Employee> employees;
@@ -10,10 +11,19 @@ public class Company {
     public Company() {
     }
 
-    public Company(String companyName, int employeesNumber, List<Employee> employees) {
+    public Company(int id, String companyName, int employeesNumber, List<Employee> employees) {
+        this.id = id;
         this.companyName = companyName;
         this.employeesNumber = employeesNumber;
         this.employees = employees;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCompanyName() {

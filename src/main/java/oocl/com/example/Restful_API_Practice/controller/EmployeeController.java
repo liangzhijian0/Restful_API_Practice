@@ -20,7 +20,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/Employees/{id}")
-    public Map<String ,Object> getAllEmployees(@PathVariable long id){
+    public Map<String ,Object> getEmployeeById(@PathVariable long id){
         Map<String ,Object> response = new LinkedHashMap<>();
         Employee employee =  employeeService.getEmployee(id);
         if(employee != null){

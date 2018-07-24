@@ -20,8 +20,18 @@ public class CompanyService implements CompanyDao {
         List<Employee> employees = new ArrayList<>();
         employees.add(employee1);
         employees.add(employee2);
-        allCompanies.add(new Company("dab",23,employees));
-        allCompanies.add(new Company("ocelai",32,employees));
+        allCompanies.add(new Company(1,"dab",23,employees));
+        allCompanies.add(new Company(2,"ocelai",32,employees));
         return allCompanies;
+    }
+
+    @Override
+    public Company getCompanyById(long id) {
+        for(Company company : allCompanies){
+            if (company.getId() == id){
+                return company;
+            }
+        }
+        return null;
     }
 }
