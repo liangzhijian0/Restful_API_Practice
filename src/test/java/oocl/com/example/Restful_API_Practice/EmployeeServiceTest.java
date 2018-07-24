@@ -21,12 +21,24 @@ public class EmployeeServiceTest {
 
 
     @Test
-    public void should_return_EmployeeList_when_getAllEmployees() {
+    public void should_return_employeeList_when_get_all_employees() {
 
         EmployeeService employeeService = new EmployeeService();
         employeeService.allEmployees.add(new Employee(1,"sanlai",20,"male",3244));
         employeeService.allEmployees.add(new Employee(2,"ocean",21,"female",4554));
 
         assertThat(employeeService.getAllEmployees(), is(employeeService.allEmployees));
+    }
+
+    @Test
+    public void should_return_one_employee_when_get_employee_by_id() {
+
+        EmployeeService employeeService = new EmployeeService();
+        Employee employee1 = new Employee(1,"sanlai",20,"male",3244);
+        Employee employee2 = new Employee(2,"ocean",21,"female",4554);
+        employeeService.allEmployees.add(employee1);
+        employeeService.allEmployees.add(employee2);
+
+        assertThat(employeeService.getEmployee(1), is(employee1));
     }
 }
