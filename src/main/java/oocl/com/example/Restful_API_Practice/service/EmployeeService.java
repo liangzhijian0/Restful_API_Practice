@@ -11,14 +11,17 @@ import java.util.stream.Collectors;
 
 @Component
 public class EmployeeService implements EmployeeDao {
+    public EmployeeService() {
+    }
 
-    private List<Employee> allEmployees = new ArrayList<>();
+    public List<Employee> allEmployees = new ArrayList<>();
+
 
     int employeeId = 1;
 
     public List<Employee> getAllEmployees() {
-        allEmployees.add(new Employee(1,"sanlai",20,"male",3244));
-        allEmployees.add(new Employee(2,"ocean",21,"female",4554));
+//        allEmployees.add(new Employee(1,"sanlai",20,"male",3244));
+//        allEmployees.add(new Employee(2,"ocean",21,"female",4554));
         return allEmployees;
     }
 
